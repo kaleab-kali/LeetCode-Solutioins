@@ -5,5 +5,7 @@ class Solution:
         for index,data in enumerate(newlist):
             if data == target:
                 res.append(index)
+            if data > target:
+                break
         return res
                 
