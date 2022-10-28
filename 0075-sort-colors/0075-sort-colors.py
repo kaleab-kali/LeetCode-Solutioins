@@ -3,15 +3,16 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        red,white=nums.count(0),nums.count(1)
-        for i in range(len(nums)):
-            if red != 0:
-                nums[i]=0
-                red -= 1
-            elif white !=0:
-                nums[i]=1
-                white -= 1
-            else:
-                nums[i]=2
+        interval = len(nums) // 2
+        while interval > 0:
+            for i in range(interval, len(nums)):
+                temp = nums[i]
+                j = i
+                while j >= interval and nums[j - interval] > temp:
+                    nums[j] = nums[j - interval]
+                    j -= interval
+
+                nums[j] = temp
+            interval //= 2
        
                 
