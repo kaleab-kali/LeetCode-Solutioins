@@ -1,10 +1,13 @@
-/**
- * @param {number} n
- * @return {number}
- */
-var subtractProductAndSum = function(n) {
-    const digits = Array.from(String(n), Number)
-    const sum = digits.reduce((a,b) => a+b)
-    const product = digits.reduce((a,b) => a*b)
-    return product-sum
+class Solution {
+public:
+    int subtractProductAndSum(int n) {
+        int p = 1, s = 0, t;
+        while (n) {
+            t = n % 10;
+            p *= t;
+            s += t;
+            n /= 10;
+        }
+        return p - s;
+    }
 };
