@@ -1,12 +1,10 @@
-class Solution:
-    def subtractProductAndSum(self, n: int) -> int:
-        # return eval('*'.join(str(n))) - eval('+'.join(str(n)))
-        my_prod = 1
-        my_sum = 0
-        
-        while n:
-            n, remainder = divmod(n, 10)
-            my_prod *= remainder            
-            my_sum += remainder
-            
-        return my_prod - my_sum
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var subtractProductAndSum = function(n) {
+    const digits = Array.from(String(n), Number)
+    const sum = digits.reduce((a,b) => a+b)
+    const product = digits.reduce((a,b) => a*b)
+    return product-sum
+};
