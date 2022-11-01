@@ -1,9 +1,15 @@
-class Solution:
-    def arraySign(self, nums: List[int]) -> int:
-        if 0 in nums:
-            return 0
-        product = 1
-        for i in nums:
-            if i < 0:
-                product *= -1
-        return product
+class Solution {
+public:
+    int arraySign(vector<int>& nums) {
+        int product = 1;
+        for(int i =0;i < nums.size();i++){
+            if(nums[i] == 0){
+                return 0;
+            }
+            if(nums[i] < 0){
+                product *= -1 ;
+            }
+        }
+        return product;
+    }
+};
