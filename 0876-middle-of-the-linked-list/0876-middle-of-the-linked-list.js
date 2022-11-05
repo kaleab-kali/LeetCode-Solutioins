@@ -1,20 +1,23 @@
 /**
  * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
  * }
  */
-class Solution {
-    public ListNode middleNode(ListNode head) {
-        ListNode slow = head, fast = head;
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        return slow;
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var middleNode = function(head) {
+     // Initialize two pointers p1 and p2 pointing to the head...
+    var p1 = head;
+    var p2 = head;
+    while(p2 != null && p2.next != null){
+        // In each iteration, we move p1 one node forward and we move p2 two nodes forward...
+        p1 = p1.next;
+        p2 = p2.next.next;
     }
-}
+    // When p2 reaches the last node, p1 will be exactly at the middle point...
+    return p1;
+};
